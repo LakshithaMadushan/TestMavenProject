@@ -19,5 +19,11 @@ pipeline {
                 sh "mvn package"
             }
         }
+        stage('Slack it'){
+            steps {
+                slackSend channel: '#jenkins-build-test-slack', 
+                          message: 'Hello, this is jenkins pipeline msg from BUDDY'
+            }
+        }
     }
 }
